@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "codemirror": "^5.11.0",
+    "commonform-markup-parse": "^0.2.2",
+    "commonform-merkleize": "^0.3.2",
+    "xhr": "^2.2.0"
+  },
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "browserify": "^13.0.0",
+    "http-server": "^0.8.5",
+    "node-sass": "^3.4.2"
+  },
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p build && npm run html && npm run js && npm run css",
+    "css": "node-sass  --include-path node_modules --output-style compressed styles.sass build/styles.css",
+    "html": "cp index.html build/index.html",
+    "js": "browserify -t brfs index.js > build/browser.js",
+    "start": "http-server -c-1 build"
+  }
+}
