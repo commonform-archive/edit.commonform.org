@@ -38,14 +38,14 @@ REF=${1:-HEAD}
 	# Install dependencies.
 	npm install
 
+	# Build.
+	npm run build
+
 	# Create a shrinkwrap manifest as a build artifact. The project itself
 	# isn't actually shrinkwrapped. It's just have these manifests handy
 	# in the deployed directories for debugging later.
 	npm shrinkwrap --dev
 	mv npm-shrinkwrap.json build/npm-shrinkwrap.json
-
-	# Build.
-	npm run build
 
 	# Replace the "RELEASE" placeholder in the HTML index with the path of
 	# this build as deployed to ROOT on commonform.org.
